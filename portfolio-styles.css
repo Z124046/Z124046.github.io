@@ -50,7 +50,7 @@ body {
   grid-column-end: -1;
 }
 
-/* Image grid styles */
+/* Container styles */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -63,6 +63,12 @@ body {
   height: auto;
 }
 
+.image-container image{
+  width: 100%;
+  height: auto;
+}
+
+/* Scaling images based on screen size */
 @media (max-width: 1080px) {
   .grid-container {
     grid-template-columns: 1fr;
@@ -72,7 +78,14 @@ body {
     width: 90%;
     height: auto;
   }
+
+  .image-container image{
+    width: 90%;
+    height: auto;
+  }
+
 }
+
 
 /* link styles */
 a:link, a:visited { color: purple; }
