@@ -7,10 +7,10 @@
 <style>
   @import url(portfolio-styles.css);
 
-  /* Custom styles for this page */
+  /* custom styles for home page */
   #layout {
     display: grid;
-    grid-template-rows: [header-start] 10vh [main-start] minmax(82.7vh, min-content) [footer-start] 5vh;
+    grid-template-rows: [header-start] 7.5vh [main-start] minmax(85vh, min-content) [footer-start] 7.5vh;
     grid-template-columns: 2.5vw 2.5vw [main-start] 90vw [main-end] 5vw;
     grid-template-areas:
         "header header header"
@@ -18,27 +18,24 @@
         "footer footer footer";
   }
 
+  /* if screen width smaller than 600px */
   @media (max-width: 600px){
-    #layout {
-      grid-template-columns: 0.5vw 2.5vw [main-start] 96.5vw [main-end] 0.5vw;
+
+      nav ul {
+      flex-direction: column; /* arrange buttons vertically */
     }
 
-    nav ul {
-    flex-direction: column; /* Arrange buttons vertically */
-    gap: 0; /* Remove gaps between buttons */
-  }
-
-  nav ul li a {
-    width: 100%; /* Make buttons full width */
-    height: auto; /* Adjust height */
-  }
+    nav ul li a {
+      width: 100%; /* make buttons full width */
+      height: auto; /* automatically adjust height */
+    }
   
-  #layout {
-    grid-template-rows: auto auto 1fr auto; /* Ensure layout fills the height */
-    height: 100vh; /* Set layout height to 100vh to remove gap under footer */
-  }
+    #layout {
+      grid-template-rows: auto auto 1fr auto; /* ensure layout fits height */
+    }
   }
 
+  /* special grid for home page */
   #header {
     grid-row-start: 1;
     grid-row-end: 2;
@@ -90,7 +87,8 @@
     margin: 1em 0;
   }
 
-  nav ul li a {
+  /* Create blocks for buttons on home page */
+  nav ul li a { 
     display: block;
     width: 150px;
     height: 150px;
