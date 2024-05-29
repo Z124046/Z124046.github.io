@@ -6,28 +6,136 @@
 <title>Home</title>
 <style>
   @import url(portfolio-styles.css);
+
+  /* Custom styles for this page */
+  #layout {
+    display: grid;
+    grid-template-rows: [header-start] 10vh [main-start] minmax(82.7vh, min-content) [footer-start] 5vh;
+    grid-template-columns: 2.5vw 2.5vw [main-start] 90vw [main-end] 5vw;
+    grid-template-areas:
+        "header header header"
+        "main main main"
+        "footer footer footer";
+  }
+
+  @media (max-width: 600px){
+    #layout {
+      grid-template-columns: 0.5vw 2.5vw [main-start] 96.5vw [main-end] 0.5vw;
+    }
+
+    nav ul {
+    flex-direction: column; /* Arrange buttons vertically */
+    gap: 0; /* Remove gaps between buttons */
+  }
+
+  nav ul li a {
+    width: 100%; /* Make buttons full width */
+    height: auto; /* Adjust height */
+  }
+  
+  #layout {
+    grid-template-rows: auto auto 1fr auto; /* Ensure layout fills the height */
+    height: 100vh; /* Set layout height to 100vh to remove gap under footer */
+  }
+  }
+
+  #header {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    background-color: #32CD32;
+  }
+
+  #main {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    text-align: center;
+  }
+
+  #footer {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: -1;
+  }
+
+  #content-header {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+
+  /* nav styles */
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2em;
+    background-color: #FEFBEA;
+  }
+
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  nav ul li {
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin: 1em 0;
+  }
+
+  nav ul li a {
+    display: block;
+    width: 150px;
+    height: 150px;
+    padding: 1em 2em;
+    border: 1px solid #ccc;
+    border-radius: .5em;
+    background-color: #fff;
+    text-decoration: none;
+    color: purple;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 1em;
+    text-align: center;
+    word-wrap: break-word;
+    overflow: hidden;
+  }
+
 </style>
 
 </head>
 <body width="device-width">
   <div id="layout">
-    <div id="links">
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="biography.html">About Me</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="photos.html">Photos</a></li>
-        </ul>
-      </nav>
-    </div>
     <div id="header">
-      <h1>Welcome</h1>
+        <h1></h1>
     </div>
     <div id="main">
+        <div id="content-header">
+            <h1>Welcome</h1>
+          </div>
       <main>
-        <p>I'm a CS student studying at Rowan University. Feel free to look around and learn more about me.</p>
+          <p>I'm a CS student studying at Rowan University. Feel free to look around and learn more about me.</p>
       </main>
+      <nav>
+        <ul>
+          <li><a href="biography.html">Learn about my education, experiences, and interests</a>
+          </li>
+          <li><a href="projects.html">See my recent work and projects</a>
+          </li>
+          <li><a href="photos.html">Browse my photo gallery</a>
+          </li>
+        </ul>
+      </nav>
     </div>
     <div id="footer">
       <footer>Contact: z124046@shibaura-it.ac.jp</footer>
